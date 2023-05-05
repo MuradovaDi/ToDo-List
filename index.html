@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nothing+You+Could+Do&family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/caff6d76ad.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="create-task-block">
+        <form class="create-task-form">
+          <h3 class="title task-title">Нове завдання</h3>
+          <div class="input-field">
+            <input type="text" name="task" class="input task-input" />
+          </div>
+          <button type="submit" class="btn">Додати завдання</button>
+        </form>
+      </div>
+
+      <div class="filter-task-block">
+        <h3 class="title task-title">Список завдань</h3>
+        <div class="input-field">
+          <input
+            type="text"
+            name="filter"
+            class="input filter-input"
+            placeholder="Пошук завдань"
+          />
+        </div>
+
+        <ul class="collection"></ul>
+
+        <button class="btn clear-tasks">Видалити всі завдання</button>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
