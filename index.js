@@ -25,7 +25,7 @@ const storeTaskInLocalStorage = (task) => {
 
 const replaceTaskInLocalStorage = (editedTask) => {
   const tasks = getTasksFromLocalStorage();
-  tasks.splice(editedTask, 0, isEdited);
+  tasks.splice(editedTask, 0, editedText);
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
@@ -111,22 +111,22 @@ const removeTask = (event) => {
       const deletedLi = event.target.closest("li");
       deletedLi.remove();
       let tasksArray = Array.from(taskList.children)
-      let totallyDeleted = tasksArray.indexOf(deletedLi);
+      let deletedIndex = tasksArray.indexOf(deletedLi);
 
-      removeTaskFromLocalStorage(totallyDeleted);
+      removeTaskFromLocalStorage(deletedIndex);
     }
   }
 };
 
 const editTask = (event) => {
-  let isEditIcon = event.target.classList.contains("edit-item");
-  
+  let isEditIcon = event.target.closest('span').classList.contains("edit-item");
+  const prevLi = event.target.closest("li");
+
   if (isEditIcon) {
-    const isEdited = prompt("Введіть нову задачу");
+    const editedText = prompt("Введіть нову задачу", prevLi.textContent);
     
-    if (isEdited) {
-      const prevLi = event.target.closest("li");
-      prevLi.replaceWith(isEdited);
+    if (editedText) {
+      prevLi.replaceWith(editedText);
       let tasksArray = Array.from(taskList.children)
       let editedTask = tasksArray.indexOf(prevLi);
 
