@@ -54,7 +54,7 @@ const getTasks = () => {
 
     const taskText = document.createElement("span");
     taskText.className = "delete-item";
-    taskText.innerHTML = ` X `;
+    taskText.innerHTML = `<i class="fa fa-times" aria-hidden="true"></i>`;
     li.append(taskText);
 
     const taskEdit = document.createElement("span");
@@ -82,7 +82,7 @@ const addTask = (event) => {
 
   const taskText = document.createElement("span");
   taskText.className = "delete-item";
-  taskText.innerHTML = ` X `;
+  taskText.innerHTML = `<i class="fa fa-times" aria-hidden="true"></i>`;
   li.append(taskText);
 
   const taskEdit = document.createElement("span");
