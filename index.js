@@ -126,7 +126,7 @@ const editTask = (event) => {
     const editedText = prompt("Введіть нову задачу", prevLi.textContent);
     
     if (editedText) {
-      prevLi.replaceWith(editedText);
+      prevLi.firstChild.textContent = editedText;
       let tasksArray = Array.from(taskList.children)
       let editedTask = tasksArray.indexOf(prevLi);
 
