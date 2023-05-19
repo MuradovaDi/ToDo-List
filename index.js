@@ -23,9 +23,9 @@ const storeTaskInLocalStorage = (task) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
-const replaceTaskInLocalStorage = (editedTask) => {
+const replaceTaskInLocalStorage = (index, newText) => {
   const tasks = getTasksFromLocalStorage();
-  tasks.splice(editedTask, 0, editedText);
+  tasks[index] = newText;
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
@@ -127,10 +127,9 @@ const editTask = (event) => {
     
     if (editedText) {
       prevLi.firstChild.textContent = editedText;
-      let tasksArray = Array.from(taskList.children)
-      let editedTask = tasksArray.indexOf(prevLi);
+      let editedTaskIndex = Array.from(taskList.children).indexOf(prevLi);
 
-      replaceTaskInLocalStorage(editedTask);
+      replaceTaskInLocalStorage(editedTaskIndex, editedText);
     } 
   }
 };
